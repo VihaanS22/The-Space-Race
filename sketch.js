@@ -59,7 +59,7 @@ levelButton = loadImage("level.png")
 }
 
 function setup(){
-createCanvas(windowWidth, windowHeight-200)   
+createCanvas(windowWidth, windowHeight)   
   
 
 
@@ -69,13 +69,13 @@ cover1.addAnimation("covering", coverImg)
 cover1.addAnimation("covering2", cover2Img)
 cover1.addAnimation("covering3", cover3Img)
 
-VI = createSprite(displayWidth/2-200, -20, 50, 50)
+VI = createSprite(windowWidth/2-150, -20, 50, 50)
 VI.addAnimation("Vi", Vi)
 VI.velocityY = 4
-HA = createSprite(displayWidth/2-70, -20, 50, 50)
+HA = createSprite(windowWidth/2-30, -20, 50, 50)
 HA.addAnimation("Ha", Ha)
 HA.velocityY = 4
-AN = createSprite(740, -20, 50, 50)
+AN = createSprite(760, -20, 50, 50)
 AN.addAnimation("An", An)
 AN.velocityY = 4
 
@@ -94,7 +94,7 @@ create.velocityX = 7
 tell = createSprite(500, 100, 20, 20)
 tell.addAnimation("intro", tellImg)
 
-portal = createSprite(displayWidth/2, 1000, 50, 50)
+portal = createSprite(windowWidth/2, 1500, 50, 50)
 portal.addAnimation("portal", portalImg)
 
 story = createSprite(1600, 100, 50, 50)
