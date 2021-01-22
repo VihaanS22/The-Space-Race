@@ -59,7 +59,7 @@ levelButton = loadImage("level.png")
 }
 
 function setup(){
-createCanvas(displayWidth, displayHeight-200)   
+createCanvas(windowWidth, windowHeight-200)   
   
 
 
@@ -303,8 +303,8 @@ if(mousePressedOver(back)){
     
 if(mousePressedOver(button)){
  
-    themeSound.stop()
-spaceSound1.play()
+  //  themeSound.stop()
+//spaceSound1.play()
     race.destroy()
     startButton.destroy()
     ship.visible = true
@@ -343,7 +343,7 @@ collect.visible = true
 level.visible = true
 }
 if(playerScore>=2 && mousePressedOver(level)){
-    spaceSound1.stop()
+    
     spaceSound2.play()
     level.y = 700
    
@@ -358,8 +358,8 @@ if(playerScore>=5){
     collect2.visible = true
 }
 if(playerScore>=5 && mousePressedOver(level)){
-    spaceSound1.stop()
-    spaceSound2.play()
+    spaceSound1.play()
+    spaceSound2.stop()
     level.destroy()
    
 }
