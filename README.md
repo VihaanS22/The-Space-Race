@@ -1,2 +1,1 @@
-# The Space Race
-#Remixed Version of Atari's Space Race
+# PROC41-Template

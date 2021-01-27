@@ -19,6 +19,7 @@ var congrats, congratsImg
 var cover1, cover2, cover3, coverImg, cover2Img, cover3Img
 var spaceSound1, spaceSound2
 var level, levelButton
+var text1, text1Image, text2, text2Image
 var playerScore = 0
 var player2Score = 0
 
@@ -56,6 +57,8 @@ coverImg = loadImage("cover.png")
 cover2Img  = loadImage("cover2.png")
 cover3Img = loadImage("cover3.png")
 levelButton = loadImage("level.png")
+text1Image = loadImage("text1.png")
+text2Image = loadImage("text2.png")
 }
 
 function setup(){
@@ -69,20 +72,20 @@ cover1.addAnimation("covering", coverImg)
 cover1.addAnimation("covering2", cover2Img)
 cover1.addAnimation("covering3", cover3Img)
 
-VI = createSprite(windowWidth/2-150, -20, 50, 50)
+VI = createSprite(windowHeight/2, 400, 50, 50)
 VI.addAnimation("Vi", Vi)
-VI.velocityY = 4
-HA = createSprite(windowWidth/2-30, -20, 50, 50)
+VI.velocityX = -4
+HA = createSprite(windowHeight/2, 520, 50, 50)
 HA.addAnimation("Ha", Ha)
-HA.velocityY = 4
-AN = createSprite(760, -20, 50, 50)
+HA.velocityX = -4
+AN = createSprite(windowHeight/2, 640, 50, 50)
 AN.addAnimation("An", An)
-AN.velocityY = 4
+AN.velocityX = -4
 
-stone = createSprite(-100, 400, 10, 10)
+stone = createSprite(500, 200, 10, 10)
 stone.addAnimation("stone", stoneImg)
 stone.scale = 0.3
-stone2 = createSprite(1435, 400, 10, 10)
+stone2 = createSprite(500, 1000, 10, 10)
 stone2.addAnimation("stone", stoneImg)
 stone2.scale = 0.3
 
@@ -91,16 +94,16 @@ create.addAnimation("create", createImg)
 create.velocityX = 7
 
 
-tell = createSprite(500, 100, 20, 20)
+tell = createSprite(800, 500, 20, 20)
 tell.addAnimation("intro", tellImg)
 
-portal = createSprite(windowWidth/2, 1500, 50, 50)
+portal = createSprite(-300, 500, 50, 50)
 portal.addAnimation("portal", portalImg)
 
-story = createSprite(1600, 100, 50, 50)
+story = createSprite(1600, 400, 50, 50)
 story.addAnimation("story",storyImg)
 
-astro = createSprite(-240, 500, 20, 20)
+astro = createSprite(240, -100, 20, 20)
 astro.addAnimation("astronaut", astroImg)
 astro.scale = 0.5
 
@@ -156,6 +159,16 @@ congrats = createSprite(650, 500, 10, 10)
 congrats.addAnimation("congratulations", congratsImg)
 congrats.visible = false
 
+text1 = createSprite(900, 800, 10, 10)
+text1.addAnimation("text", text1Image)
+text1.scale = 2
+text1.visible = false
+
+text2 = createSprite(800, 800, 10, 10)
+text2.addAnimation("textII", text2Image)
+text2.scale = 2
+text2.visible = false
+
 level = createSprite(650, 400, 10, 10)
 level.addAnimation("levelSelect", levelButton)
 level.visible = false
@@ -184,10 +197,10 @@ startButton.display()
   
 
 
-   if(VI.y>300){
+   if(VI.x>700){
  
-    stone2.velocityX = -14
-    stone.velocityX = 14
+    stone2.velocityY = -4
+    stone.velocityY = 4
     stone.lifetime = 50
     stone2.lifetime = 50
     create.lifetime  = 200
@@ -214,20 +227,20 @@ tell.lifetime = 30
  
 }
 
-if(create.x>displayWidth+50){
+if(create.x>windowWidth+50){
    story.velocityX = -4
-   portal.velocityY = -3
+   portal.velocityX = 5
    story.lifetime = 200
    portal.lifetime = 100
 }
 if(portal.isTouching(story)){
     story.destroy()
 }
-if(portal.y<= -10){
+if(portal.x>= 1000){
     cover1.changeAnimation("covering2", cover2Img)
 background(space2)
 goal.display()
-astro.velocityX = 6
+astro.velocityY = 8
 astro.lifetime = 200
 textSize(25)
 text("YOU LAND AT A ROUGH SURFACE AND LOOK AROUND...IS THAT..JUPITER?", 10, 340)
@@ -240,15 +253,15 @@ text("YOU HELP YOUR FRIENDS UP AND SEE YOURSELF IN SPACE SUITS!AND THERE ARE SPA
 
 if(create.x>displayWidth+50){
  textSize(25)
-    text("MARS, 2070...EARTH IS NO MORE A PLACE FOR LIVING. IT'S BECOME A PLACE ONLY FOR RESEARCH.", 10, 100)
-text("YOU ARE AT THE MARS GAMING CENTRE WITH YOUR FRIENDS. SUDDENLY....", 20, 130)
+  text1.visible = true
+text2.visible = true
 }
 if(astro.x>1400){
     goal.velocityY = 5
      goal.lifetime = 100
     
-    text("A MESSAGE APPEARS IN FRONT OF YOU AND SAYS;'WELCOME TO THE SPACE RACE.'", 10, 400)
-    text("'BE THE SAVIOUR OF THE PLANETS!'", 10, 430)
+  //  text("A MESSAGE APPEARS IN FRONT OF YOU AND SAYS;'WELCOME TO THE SPACE RACE.'", 10, 400)
+    //text("'BE THE SAVIOUR OF THE PLANETS!'", 10, 430)
     //text("YOU AND YOUR FRIENDS ARE EXCITED TO SEE THIS AND THINK IT IS A GAME..", 10, 460)
     //text("BUT LITTLE DO YOU KNOW THAT THIS IS NOT A GAME", 10, 490)
  
@@ -303,7 +316,7 @@ if(mousePressedOver(back)){
     
 if(mousePressedOver(button)){
  
-  //  themeSound.stop()
+    themeSound.stop()
 //spaceSound1.play()
     race.destroy()
     startButton.destroy()
@@ -314,7 +327,7 @@ if(mousePressedOver(button)){
     instruct1.destroy()
     back.destroy()
 cover1.visible = false
-   // themeSound.play()
+   themeSound.play()
    // timer.visible = true
  // timer.velocityY = 0.8
  
