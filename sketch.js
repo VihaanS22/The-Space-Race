@@ -19,7 +19,7 @@ var congrats, congratsImg
 var cover1, cover2, cover3, coverImg, cover2Img, cover3Img
 var spaceSound1, spaceSound2
 var level, levelButton
-var text1, text1Image, text2, text2Image
+var text1, text1Image, text2, text2Image, text3, text3Image, text4, text4Image, text5, text5Image
 var playerScore = 0
 var player2Score = 0
 
@@ -59,6 +59,9 @@ cover3Img = loadImage("cover3.png")
 levelButton = loadImage("level.png")
 text1Image = loadImage("text1.png")
 text2Image = loadImage("text2.png")
+text3Image = loadImage("text3.png")
+text4Image = loadImage("text4.png")
+text5Image = loadImage("text5.png")
 }
 
 function setup(){
@@ -72,14 +75,17 @@ cover1.addAnimation("covering", coverImg)
 cover1.addAnimation("covering2", cover2Img)
 cover1.addAnimation("covering3", cover3Img)
 
-VI = createSprite(windowHeight/2, 400, 50, 50)
+VI = createSprite(windowHeight/2, windowWidth-400, 50, 50)
 VI.addAnimation("Vi", Vi)
+VI.scale = 0.2
 VI.velocityX = -4
-HA = createSprite(windowHeight/2, 520, 50, 50)
+HA = createSprite(windowHeight/2, windowWidth-520, 50, 50)
 HA.addAnimation("Ha", Ha)
+HA.scale = 0.2
 HA.velocityX = -4
-AN = createSprite(windowHeight/2, 640, 50, 50)
+AN = createSprite(windowHeight/2, windowWidth-640, 50, 50)
 AN.addAnimation("An", An)
+AN.scale = 0.2
 AN.velocityX = -4
 
 stone = createSprite(500, 200, 10, 10)
@@ -102,8 +108,9 @@ portal.addAnimation("portal", portalImg)
 
 story = createSprite(1600, 400, 50, 50)
 story.addAnimation("story",storyImg)
+story.scale = 0.7
 
-astro = createSprite(240, -100, 20, 20)
+astro = createSprite(210, -100, 20, 20)
 astro.addAnimation("astronaut", astroImg)
 astro.scale = 0.5
 
@@ -111,7 +118,7 @@ button = createSprite(650, 400, 20, 20)
 button.addAnimation("play", buttonImg)
 button.visible = false
 
-goal = createSprite(400, -200, 20,20)
+goal = createSprite(600, -200, 20,20)
 goal.addAnimation("goal", goalImg)
 
 race = createSprite(650, 200, 10, 10)
@@ -168,6 +175,21 @@ text2 = createSprite(800, 800, 10, 10)
 text2.addAnimation("textII", text2Image)
 text2.scale = 2
 text2.visible = false
+
+text3 = createSprite(500, 800, 10, 10)
+text3.addAnimation("textIII", text3Image)
+text3.scale = 2
+text3.visible = false
+
+text4 = createSprite(400, 840, 10, 10)
+text4.addAnimation("textIV", text4Image)
+text4.scale = 2
+text4.visible = false
+
+text5 = createSprite(300, 840, 10, 10)
+text5.addAnimation("textV", text5Image)
+text5.scale = 2
+text5.visible = false
 
 level = createSprite(650, 400, 10, 10)
 level.addAnimation("levelSelect", levelButton)
@@ -228,7 +250,7 @@ tell.lifetime = 30
 }
 
 if(create.x>windowWidth+50){
-   story.velocityX = -4
+   story.velocityX = -6
    portal.velocityX = 5
    story.lifetime = 200
    portal.lifetime = 100
@@ -239,12 +261,14 @@ if(portal.isTouching(story)){
 if(portal.x>= 1000){
     cover1.changeAnimation("covering2", cover2Img)
 background(space2)
+text3.visible = true
+
 goal.display()
 astro.velocityY = 8
 astro.lifetime = 200
 textSize(25)
-text("YOU LAND AT A ROUGH SURFACE AND LOOK AROUND...IS THAT..JUPITER?", 10, 340)
-text("YOU HELP YOUR FRIENDS UP AND SEE YOURSELF IN SPACE SUITS!AND THERE ARE SPACESHIPS TOO!!!", 10, 370)
+//text("YOU LAND AT A ROUGH SURFACE AND LOOK AROUND...IS THAT..JUPITER?", 10, 340)
+//text("YOU HELP YOUR FRIENDS UP AND SEE YOURSELF IN SPACE SUITS!AND THERE ARE SPACESHIPS TOO!!!", 10, 370)
 
 
 }
@@ -256,14 +280,11 @@ if(create.x>displayWidth+50){
   text1.visible = true
 text2.visible = true
 }
-if(astro.x>1400){
-    goal.velocityY = 5
+if(astro.y>windowHeight){
+    goal.velocityY = 8
      goal.lifetime = 100
-    
-  //  text("A MESSAGE APPEARS IN FRONT OF YOU AND SAYS;'WELCOME TO THE SPACE RACE.'", 10, 400)
-    //text("'BE THE SAVIOUR OF THE PLANETS!'", 10, 430)
-    //text("YOU AND YOUR FRIENDS ARE EXCITED TO SEE THIS AND THINK IT IS A GAME..", 10, 460)
-    //text("BUT LITTLE DO YOU KNOW THAT THIS IS NOT A GAME", 10, 490)
+    text4.visible = true
+ text5.visible = true
  
 }
 
@@ -274,10 +295,15 @@ if(mousePressedOver(startButton)){
     }
 
 
-if(goal.y>1350){
+if(goal.y>windowHeight + 100){
  
     background(space3)
     cover1.changeAnimation("covering3", cover3Img)
+    text1.destroy()
+    text2.destroy()
+    text3.destroy()
+    text4.destroy()
+    text5.destroy()
     AsteroidGroup()
     Asteroid2Group()
     Asteroid3Group()
