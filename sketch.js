@@ -78,15 +78,15 @@ cover1.addAnimation("covering3", cover3Img)
 VI = createSprite(windowWidth/2+200, windowHeight/2-300, 50, 50)
 VI.addAnimation("Vi", Vi)
 VI.scale = 0.5
-VI.velocityX = -4
+VI.velocityX = -10
 HA = createSprite(windowWidth/2+200, windowHeight/2-240, 50, 50)
 HA.addAnimation("Ha", Ha)
 HA.scale = 0.5
-HA.velocityX = -4
+HA.velocityX = -10
 AN = createSprite(windowWidth/2+200, windowHeight/2-180, 50, 50)
 AN.addAnimation("An", An)
 AN.scale = 0.5
-AN.velocityX = -4
+AN.velocityX = -10
 
 stone = createSprite(windowWidth/2, 200, 10, 10)
 stone.addAnimation("stone", stoneImg)
@@ -224,8 +224,8 @@ startButton.display()
 
    if(VI.x>windowWidth/2+50){
  
-    stone2.velocityY = -5
-    stone.velocityY = 5
+    stone2.velocityY = -20
+    stone.velocityY = 20
     stone.lifetime = 50
     stone2.lifetime = 50
     create.lifetime  = 200
@@ -254,8 +254,8 @@ AN.lifetime = 50
 }
 
 if(create.x>windowWidth+50){
-   story.velocityX = -6
-   portal.velocityX = 5
+   story.velocityX = -9
+   portal.velocityX = 9
    story.lifetime = 200
    portal.lifetime = 100
 }
@@ -268,7 +268,7 @@ background(space2)
 text3.visible = true
 
 goal.display()
-astro.velocityY = 8
+astro.velocityY = 18
 astro.lifetime = 200
 textSize(25)
 //text("YOU LAND AT A ROUGH SURFACE AND LOOK AROUND...IS THAT..JUPITER?", 10, 340)
@@ -285,7 +285,7 @@ if(create.x>displayWidth+50){
 text2.visible = true
 }
 if(astro.y>windowHeight){
-    goal.velocityY = 8
+    goal.velocityY = 18
      goal.lifetime = 100
     text4.visible = true
  text5.visible = true
