@@ -77,15 +77,15 @@ cover1.addAnimation("covering3", cover3Img)
 
 VI = createSprite(windowHeight/2, windowWidth-400, 50, 50)
 VI.addAnimation("Vi", Vi)
-VI.scale = 0.2
+VI.scale = 0.5
 VI.velocityX = -4
-HA = createSprite(windowHeight/2, windowWidth-520, 50, 50)
+HA = createSprite(windowHeight/2, windowWidth-480, 50, 50)
 HA.addAnimation("Ha", Ha)
-HA.scale = 0.2
+HA.scale = 0.5
 HA.velocityX = -4
-AN = createSprite(windowHeight/2, windowWidth-640, 50, 50)
+AN = createSprite(windowHeight/2, windowWidth-560, 50, 50)
 AN.addAnimation("An", An)
-AN.scale = 0.2
+AN.scale = 0.5
 AN.velocityX = -4
 
 stone = createSprite(500, 200, 10, 10)
@@ -232,7 +232,8 @@ if(stone.isTouching(VI)){
     VI.velocityX = 5
     VI.velocityY = -6
     VI.lifetime = 50
-  
+    tell.velocityY = -5
+    tell.lifetime = 30
 }
 if(stone.isTouching(HA)){
     HA.velocityX = 3
@@ -243,9 +244,9 @@ if(stone.isTouching(HA)){
 if(stone2.isTouching(AN)){
     AN.velocityX = 8
     AN.velocityY = -2
-tell.velocityY = -5
+
 AN.lifetime = 50
-tell.lifetime = 30
+
  
 }
 
