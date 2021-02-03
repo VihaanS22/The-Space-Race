@@ -75,51 +75,54 @@ cover1.addAnimation("covering", coverImg)
 cover1.addAnimation("covering2", cover2Img)
 cover1.addAnimation("covering3", cover3Img)
 
-VI = createSprite(windowHeight/2, windowWidth-400, 50, 50)
+VI = createSprite(windowWidth/2+200, windowHeight/2-300, 50, 50)
 VI.addAnimation("Vi", Vi)
 VI.scale = 0.5
 VI.velocityX = -4
-HA = createSprite(windowHeight/2, windowWidth-480, 50, 50)
+HA = createSprite(windowWidth/2+200, windowHeight/2-240, 50, 50)
 HA.addAnimation("Ha", Ha)
 HA.scale = 0.5
 HA.velocityX = -4
-AN = createSprite(windowHeight/2, windowWidth-560, 50, 50)
+AN = createSprite(windowWidth/2+200, windowHeight/2-180, 50, 50)
 AN.addAnimation("An", An)
 AN.scale = 0.5
 AN.velocityX = -4
 
-stone = createSprite(500, 200, 10, 10)
+stone = createSprite(windowWidth/2, 200, 10, 10)
 stone.addAnimation("stone", stoneImg)
-stone.scale = 0.3
-stone2 = createSprite(500, 1000, 10, 10)
+stone.scale = 0.2
+stone2 = createSprite(windowWidth/2, 1000, 10, 10)
 stone2.addAnimation("stone", stoneImg)
-stone2.scale = 0.3
+stone2.scale = 0.2
 
-create = createSprite(-30, 200, 10, 10)
+create = createSprite(windowWidth/4, windowHeight-900, 10, 10)
 create.addAnimation("create", createImg)
 create.velocityX = 7
+create.scale = 0.4
 
-
-tell = createSprite(800, 500, 20, 20)
+tell = createSprite(windowWidth-200, windowHeight/3, 20, 20)
 tell.addAnimation("intro", tellImg)
+tell.scale = 0.8
 
-portal = createSprite(-300, 500, 50, 50)
+portal = createSprite(windowWidth/4-700, windowHeight/2, 50, 50)
 portal.addAnimation("portal", portalImg)
+portal.scale = 0.6
 
-story = createSprite(1600, 400, 50, 50)
+story = createSprite(windowWidth+500, windowHeight/2, 50, 50)
 story.addAnimation("story",storyImg)
-story.scale = 0.7
+story.scale = 0.5
 
-astro = createSprite(210, -100, 20, 20)
+astro = createSprite(windowWidth/3, windowHeight/25-500, 20, 20)
 astro.addAnimation("astronaut", astroImg)
-astro.scale = 0.5
+astro.scale = 0.4
 
 button = createSprite(650, 400, 20, 20)
 button.addAnimation("play", buttonImg)
 button.visible = false
 
-goal = createSprite(600, -200, 20,20)
+goal = createSprite(windowWidth/2+300,windowHeight/25-300, 20,20)
 goal.addAnimation("goal", goalImg)
+goal.scale = 0.4
 
 race = createSprite(650, 200, 10, 10)
 race.addAnimation("poster", raceImg)
@@ -219,10 +222,10 @@ startButton.display()
   
 
 
-   if(VI.x>700){
+   if(VI.x>windowWidth/2+50){
  
-    stone2.velocityY = -4
-    stone.velocityY = 4
+    stone2.velocityY = -5
+    stone.velocityY = 5
     stone.lifetime = 50
     stone2.lifetime = 50
     create.lifetime  = 200
@@ -239,7 +242,7 @@ if(stone.isTouching(HA)){
     HA.velocityX = 3
     HA.velocityY = -10
     HA.lifetime = 50
-
+   
 }
 if(stone2.isTouching(AN)){
     AN.velocityX = 8
