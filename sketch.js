@@ -11,7 +11,7 @@ var race, raceImg, ship, shipImg, ship2, shipImg
 var instruct, instructImg, instruct1, instruct1Img
 var back, backImg
 var themeSound
-var shipSound
+
 var start, startButton
 var asteroids
 var collect, collect2, collectImg, collect2Img
@@ -25,7 +25,7 @@ var player2Score = 0
 
 function preload(){
 themeSound = loadSound("theme.mp3")
-shipSound = loadSound("shipSound.mp3")
+
 spaceSound1 = loadSound("spaceSound1.mp3")
 spaceSound2 = loadSound("spaceSound2.mp3")
 Vi = loadImage("Vi.png")
@@ -65,7 +65,7 @@ text5Image = loadImage("text5.png")
 }
 
 function setup(){
-createCanvas(displayWidth+620, displayHeight+1300)   
+createCanvas(displayWidth+600, displayHeight+800)   
   
 
 
@@ -169,7 +169,7 @@ congrats = createSprite(650, 500, 10, 10)
 congrats.addAnimation("congratulations", congratsImg)
 congrats.visible = false
 
-text1 = createSprite(900, 800, 10, 10)
+/*text1 = createSprite(900, 800, 10, 10)
 text1.addAnimation("text", text1Image)
 text1.scale = 2
 text1.visible = false
@@ -193,7 +193,7 @@ text5 = createSprite(300, 840, 10, 10)
 text5.addAnimation("textV", text5Image)
 text5.scale = 2
 text5.visible = false
-
+*/
 level = createSprite(650, 400, 10, 10)
 level.addAnimation("levelSelect", levelButton)
 level.visible = false
@@ -265,7 +265,7 @@ if(portal.isTouching(story)){
 if(portal.x>= 1000){
     cover1.changeAnimation("covering2", cover2Img)
 background(space2)
-text3.visible = true
+//text3.visible = true
 
 goal.display()
 astro.velocityY = 18
@@ -282,13 +282,13 @@ textSize(25)
 if(create.x>displayWidth+50){
  textSize(25)
   text1.visible = true
-text2.visible = true
+//text2.visible = true
 }
 if(astro.y>windowHeight){
     goal.velocityY = 18
      goal.lifetime = 100
-    text4.visible = true
- text5.visible = true
+  text4.visible = true
+ //text5.visible = true
  
 }
 
@@ -303,11 +303,12 @@ if(goal.y>windowHeight + 100){
  
     background(space3)
     cover1.changeAnimation("covering3", cover3Img)
-    text1.destroy()
+  /*  text1.destroy()
     text2.destroy()
     text3.destroy()
     text4.destroy()
     text5.destroy()
+    */
     AsteroidGroup()
     Asteroid2Group()
     Asteroid3Group()
