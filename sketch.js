@@ -65,7 +65,7 @@ text5Image = loadImage("text5.png")
 }
 
 function setup(){
-createCanvas(windowWidth, windowHeight)   
+createCanvas(displayWidth+620, displayHeight+1300)   
   
 
 
