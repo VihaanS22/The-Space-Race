@@ -169,10 +169,11 @@ congrats = createSprite(650, 500, 10, 10)
 congrats.addAnimation("congratulations", congratsImg)
 congrats.visible = false
 
-text1 = createSprite(900, 800, 10, 10)
+/*text1 = createSprite(900, 800, 10, 10)
 text1.addAnimation("text", text1Image)
 text1.scale = 2
 text1.visible = false
+*/
 
 /*text2 = createSprite(800, 800, 10, 10)
 text2.addAnimation("textII", text2Image)
@@ -184,10 +185,12 @@ text3.addAnimation("textIII", text3Image)
 text3.scale = 2
 text3.visible = false
 */
+/*
 text4 = createSprite(400, 840, 10, 10)
 text4.addAnimation("textIV", text4Image)
 text4.scale = 2
 text4.visible = false
+*/
 /*
 text5 = createSprite(300, 840, 10, 10)
 text5.addAnimation("textV", text5Image)
