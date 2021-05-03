@@ -69,13 +69,13 @@ cover1.addAnimation("covering", coverImg)
 cover1.addAnimation("covering2", cover2Img)
 cover1.addAnimation("covering3", cover3Img)
 
-VI = createSprite(windowWidth/2-150, -20, 50, 50)
+VI = createSprite(windowWidth/2-200, -20, 50, 50)
 VI.addAnimation("Vi", Vi)
 VI.velocityY = 4
-HA = createSprite(windowWidth/2-30, -20, 50, 50)
+HA = createSprite(windowWidth/2-70, -20, 50, 50)
 HA.addAnimation("Ha", Ha)
 HA.velocityY = 4
-AN = createSprite(760, -20, 50, 50)
+AN = createSprite(820, -20, 50, 50)
 AN.addAnimation("An", An)
 AN.velocityY = 4
 
@@ -97,7 +97,7 @@ tell.addAnimation("intro", tellImg)
 portal = createSprite(windowWidth/2, 1500, 50, 50)
 portal.addAnimation("portal", portalImg)
 
-story = createSprite(1600, 100, 50, 50)
+story = createSprite(2000, 100, 50, 50)
 story.addAnimation("story",storyImg)
 
 astro = createSprite(-240, 500, 20, 20)
@@ -345,7 +345,7 @@ level.visible = true
 if(playerScore>=2 && mousePressedOver(level)){
     
     spaceSound2.play()
-    level.y = 700
+    level.y = 1000
    
 }
 
